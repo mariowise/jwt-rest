@@ -21,7 +21,7 @@ module JwtRest
     end
 
     # To be defined by the developer
-    # def handle_user_identity
+    # def handle_user_identity(jwt_payload)
     #   true if the users is valid
     # end
 
