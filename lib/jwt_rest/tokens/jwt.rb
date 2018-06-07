@@ -15,8 +15,8 @@ module JwtRest
       end
 
       def load_token
-        parts = JWT.decode(token, key.public_key, true, { algorithm: 'RS384' })
-        @payload = parts.reduce({}, :merge)
+        parts = JWT.decode(token, key.public_key, true, { algorithm: 'RS384' }) rescue nil
+        @payload = parts.reduce({}, :merge) if parts
         self
       end
 

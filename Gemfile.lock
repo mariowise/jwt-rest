@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jwt-rest (0.1.0)
+    jwt-rest (0.1.1)
       jwt (~> 2.1.0)
       rails (~> 5.1.6)
 

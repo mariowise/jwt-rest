@@ -22,5 +22,11 @@ describe JwtRest::Tokens::Jwt do
       jwt = described_class.new(token: jwt_token).load_token
       expect(jwt.payload.dig("name")).to eq("Mario")
     end
+
+    it "return nil for invalid tokens" do
+      expect do
+        jwt = described_class.new(token: "some-motherfucker-token").load_token
+      end.not_to raise_error
+    end
   end
 end
