@@ -16,7 +16,7 @@ $ bundle
 
 First you will need to provide a way to find if the ApiKey is valid or not, and a way to retrieve the RSA private key to sign JWT tokens. For this, lets create a initializer `config/initializers/jwt_rest.rb`.
 
-```
+```ruby
 require "jwt_rest"
 
 module JwtRest
@@ -34,11 +34,10 @@ end
 
 Then in your API's base controller do this
 
-```
+```ruby
 class ApiController < ActionController::API
   include JwtRest::Authenticable
 
-  before_action :demand_application_json
   before_action :demand_api_key
 
   def handle_user_identity(jwt_payload)
@@ -51,7 +50,7 @@ end
 This will ensure that every call to your API i
 s made with a valid api key. You could use the method `demand_current_user` for those endpoins where you need to authenticate the user with the JWT token.
 
-```
+```ruby
 class UsersController < ApiController
   before_action :demand_current_user, only: [:profile]
 

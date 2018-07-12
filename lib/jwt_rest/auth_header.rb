@@ -1,7 +1,7 @@
 module JwtRest
   class AuthHeader
     def initialize(chunk = "")
-      @type, @value = chunk.split(" ")
+      @type, @value = chunk&.split(" ")
       @type = @type&.downcase
     end
 

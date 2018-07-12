@@ -38,5 +38,9 @@ describe JwtRest::AuthHeader do
     it "return nil on ugly token" do
       expect(ugly_header.token).to be_nil
     end
+
+    it "does not raises exception on nil param for constructor" do
+      expect { described_class.new(nil) }.not_to raise_error
+    end
   end
 end
